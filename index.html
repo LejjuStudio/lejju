@@ -445,21 +445,11 @@ let signedIn = false;
 const ADMIN_EMAIL = "jessicaacevedo198916@gmail.com";
 
 onAuthStateChanged(auth, (user) => {
-  signedIn = !!user && user.email === ADMIN_EMAIL;
-
-  adminSignInBtn.style.display = signedIn ? "none" : "inline-flex";
-  adminSignOutBtn.style.display = signedIn ? "inline-flex" : "none";
-
-  adminState.textContent = signedIn
-    ? `Admin: autenticado (${user.email})`
-    : "Admin: no autorizado";
-
-  if (user && user.email !== ADMIN_EMAIL) {
-    alert("No sos administrador.");
-    signOut(auth);
-  }
+  signedIn = !!user;
+  adminSignInBtn.style.display = user ? "none" : "inline-flex";
+  adminSignOutBtn.style.display = user ? "inline-flex" : "none";
+  adminState.textContent = user ? `Admin: autenticado (${user.email || "cuenta"})` : "Admin: no autenticado";
 });
-  });
 
   // ====== ANTI-SPAM HELPERS ======
   function hasLink(text){
@@ -608,6 +598,7 @@ onAuthStateChanged(auth, (user) => {
 </script>
 </body>
 </html>  
+
 
 
 
