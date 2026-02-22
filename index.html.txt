@@ -1,0 +1,606 @@
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"> <!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LEJJU STUDIO · Manifiesto Público</title>
+  <meta name="description" content="LEJJU STUDIO · Manifiesto Público de Soberanía Simbólica." />
+
+  <!-- Tipografías: antiguo + minimal -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Paleta armónica: obsidiana + marfil + metal */
+      --bg:#0B0C0F; --text:#EDEBE6; --muted:#A6A29A; --line:rgba(237,235,230,.12);
+      --card:rgba(237,235,230,.03); --radius:18px; --shadow: 0 18px 55px rgba(0,0,0,.60);
+      --accent:#CFCAC0; --accent2:#8E8B84;
+
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      --sans: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      --serif: "Cinzel", serif;
+      --max: 1040px;
+    }
+
+    *{ box-sizing:border-box }
+    body{
+      margin:0; font-family:var(--sans); color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 18% 0%, rgba(207,202,192,.08), transparent 60%),
+        radial-gradient(900px 500px at 85% 25%, rgba(142,139,132,.07), transparent 55%),
+        radial-gradient(700px 700px at 50% 120%, rgba(237,235,230,.035), transparent 55%),
+        var(--bg);
+      overflow-x:hidden;
+    }
+
+    a{ color:inherit; text-decoration:none }
+
+    .wrap{ max-width:var(--max); margin:0 auto; padding:28px 18px 70px; }
+
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(11,12,15,.86), rgba(11,12,15,.35));
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav{
+      max-width:var(--max); margin:0 auto; padding:14px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex; align-items:baseline; gap:10px;
+      font-family: var(--serif);
+      letter-spacing:.18em; text-transform:uppercase;
+      font-weight:700;
+    }
+    .brand small{
+      color:var(--muted); letter-spacing:.22em; font-weight:600;
+      font-family: var(--mono);
+      text-transform:none;
+    }
+
+    .navlinks{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+
+    .iconbtn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:10px 12px; border:1px solid var(--line); border-radius:999px;
+      background: rgba(237,235,230,.02);
+      transition: border-color .15s ease, transform .15s ease;
+    }
+    .iconbtn:hover{ border-color: rgba(207,202,192,.45); transform: translateY(-1px); }
+    .icon{ width:16px; height:16px; opacity:.92 }
+
+    .hero{ display:grid; grid-template-columns: 1.15fr .85fr; gap:18px; margin-top:18px; }
+    @media (max-width: 900px){ .hero{ grid-template-columns: 1fr; } }
+
+    .card{
+      background: linear-gradient(180deg, rgba(237,235,230,.05), rgba(237,235,230,.015));
+      border: 1px solid var(--line); border-radius: var(--radius);
+      box-shadow: var(--shadow); padding:22px; position:relative; overflow:hidden;
+    }
+    .card:before{
+      content:""; position:absolute; inset:-2px;
+      background:
+        radial-gradient(600px 220px at 25% 0%, rgba(207,202,192,.08), transparent 55%),
+        radial-gradient(520px 240px at 85% 40%, rgba(142,139,132,.07), transparent 55%);
+      pointer-events:none; opacity:.85;
+    }
+    .card > *{ position:relative; }
+
+    h1{
+      margin:0 0 10px;
+      font-family: var(--serif);
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      font-size: clamp(28px, 3.6vw, 42px);
+      line-height:1.08;
+    }
+    h2{
+      margin:0 0 10px;
+      font-family: var(--serif);
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-size: 16px;
+      color: var(--text);
+    }
+
+    .subtitle, .lead{ color:var(--muted); font-size:15.5px; line-height:1.7; margin:0; }
+
+    .pillrow{ display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+    .pill{
+      font-family: var(--mono); font-size:12px; padding:8px 10px;
+      border:1px solid var(--line); border-radius: 999px;
+      background: rgba(237,235,230,.02); color: var(--muted);
+    }
+
+    .grid{ display:grid; grid-template-columns: 1fr 1fr; gap:18px; margin-top:18px; }
+    @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
+
+    blockquote{
+      margin:0; padding:16px;
+      border-left: 4px solid rgba(207,202,192,.55);
+      background: rgba(207,202,192,.04);
+      border-radius: 14px; line-height:1.75;
+    }
+
+    .motto{
+      font-family: var(--serif);
+      text-transform:uppercase;
+      letter-spacing:.10em;
+      font-size: 15px;
+      font-weight:700;
+    }
+
+    .mono{ font-family: var(--mono); font-size: 12.5px; color: var(--muted); line-height:1.6; }
+
+    .list{ margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px; }
+    .list li{
+      padding:12px; border:1px solid var(--line); border-radius:14px;
+      background: rgba(237,235,230,.02);
+      line-height:1.65;
+    }
+    .list li span{ color:var(--muted); display:block; font-size:13px; margin-top:6px; }
+
+    input, textarea, select{
+      width:100%; padding:10px; border-radius:10px; border:1px solid var(--line);
+      background:rgba(237,235,230,.03); color:var(--text); outline:none;
+    }
+    textarea{ resize:vertical; min-height:110px; }
+
+    .actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+
+    .cta{
+      cursor:pointer; border:1px solid var(--line);
+      background: rgba(237,235,230,.02);
+      color: var(--text);
+      padding:10px 12px; border-radius:999px;
+      font-family: var(--mono); font-size:12px;
+      display:inline-flex; gap:10px; align-items:center;
+      transition: border-color .15s ease, transform .15s ease;
+    }
+    .cta:hover{ border-color: rgba(207,202,192,.45); transform: translateY(-1px); }
+
+    .smallprint{ font-size:12px; color: var(--muted); margin-top:10px; }
+
+    .footer{
+      margin-top:26px; padding-top:18px; border-top:1px solid var(--line);
+      color: var(--muted); display:flex; gap:12px; flex-wrap:wrap;
+      align-items:center; justify-content:space-between; font-size: 13px;
+    }
+
+    .tag{
+      font-family:var(--mono); font-size:12px;
+      padding:6px 8px; border:1px solid var(--line); border-radius:999px; color:var(--muted);
+      background: rgba(237,235,230,.02);
+    }
+    .danger{ border-color: rgba(237,235,230,.20); }
+
+    /* Logo card */
+    .logoWrap{
+      display:grid; place-items:center;
+      padding:10px 0 6px;
+      min-height: 260px;
+    }
+    .logoImg{
+      width: 240px; max-width: 100%;
+      height: auto;
+      filter: drop-shadow(0 10px 25px rgba(0,0,0,.65));
+      opacity: .98;
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="nav">
+    <div class="brand">
+      <span>LEJJU STUDIO</span>
+      <small>Manifiesto Público</small>
+    </div>
+
+    <div class="navlinks">
+      <a class="iconbtn" href="#manifiesto">Manifiesto</a>
+      <a class="iconbtn" href="#motto">Motto</a>
+      <a class="iconbtn" href="#muro">Muro</a>
+      <a class="iconbtn" href="#contacto">Contacto</a>
+
+      <!-- WhatsApp -->
+      <a class="iconbtn" href="https://wa.me/598293824368" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg class="icon" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+          <path d="M19.11 17.44c-.23-.12-1.36-.67-1.57-.75-.21-.08-.37-.12-.52.12-.15.23-.6.75-.73.9-.13.15-.27.17-.5.06-.23-.12-.98-.36-1.86-1.14-.69-.62-1.15-1.39-1.28-1.62-.13-.23-.01-.36.1-.47.1-.1.23-.27.35-.4.12-.13.15-.23.23-.38.08-.15.04-.29-.02-.4-.06-.12-.52-1.25-.71-1.71-.19-.46-.38-.4-.52-.41l-.44-.01c-.15 0-.4.06-.61.29-.21.23-.8.78-.8 1.9 0 1.12.82 2.2.93 2.35.12.15 1.62 2.47 3.93 3.46.55.24.98.38 1.31.49.55.17 1.05.15 1.45.09.44-.07 1.36-.56 1.55-1.1.19-.54.19-1 .13-1.1-.06-.1-.21-.15-.44-.27z"/>
+          <path d="M26.66 5.34A13.26 13.26 0 0 0 16.02 1C8.65 1 2.66 6.98 2.66 14.35c0 2.35.61 4.64 1.78 6.67L2 31l10.24-2.68a13.3 13.3 0 0 0 6.38 1.63h.01c7.37 0 13.35-5.98 13.35-13.35 0-3.57-1.39-6.93-3.92-9.26zM18.63 27.7h-.01a11.09 11.09 0 0 1-5.66-1.55l-.4-.24-6.07 1.59 1.62-5.92-.26-.42a11.06 11.06 0 0 1-1.7-5.81c0-6.11 4.98-11.09 11.1-11.09 2.96 0 5.74 1.15 7.83 3.24a11.02 11.02 0 0 1 3.25 7.85c0 6.11-4.98 11.35-11.7 11.35z"/>
+        </svg>
+        <span class="mono">WhatsApp</span>
+      </a>
+
+      <!-- IG personal -->
+      <a class="iconbtn" href="https://www.instagram.com/osito.gummi/" target="_blank" rel="noopener" aria-label="Instagram osito.gummi">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9z"/>
+          <path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+          <circle cx="17.5" cy="6.5" r="1"/>
+        </svg>
+        <span class="mono">IG · Personal</span>
+      </a>
+
+      <!-- IG studio -->
+      <a class="iconbtn" href="https://www.instagram.com/lejju.studio/" target="_blank" rel="noopener" aria-label="Instagram lejju.studio">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9z"/>
+          <path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+          <circle cx="17.5" cy="6.5" r="1"/>
+        </svg>
+        <span class="mono">IG · Studio</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <div class="card">
+      <h1>Geometría soberana</h1>
+      <p class="subtitle">
+        LEJJU STUDIO investiga y aplica simbología esencial: forma, sentido y decisión.
+        Sin dogma. Sin ruido. Con precisión.
+      </p>
+      <div class="pillrow">
+        <div class="pill">Orden</div>
+        <div class="pill">Proporción</div>
+        <div class="pill">Discernimiento</div>
+        <div class="pill">Coherencia</div>
+        <div class="pill">Unidad</div>
+      </div>
+      <p class="smallprint mono">
+        Contacto directo: WhatsApp en formato internacional (sin “+”).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Símbolo</h2>
+      <div class="logoWrap">
+        <!-- Cambiá esta ruta por donde subas el logo -->
+        <img class="logoImg" src="assets/lejju-logo.png" alt="LEJJU STUDIO · Símbolo" />
+      </div>
+      <div class="tag">Círculo · Ejes · Rombo</div>
+    </div>
+  </div>
+
+  <section id="manifiesto" class="grid">
+    <div class="card">
+      <h2>Manifiesto</h2>
+      <p class="lead">
+        Los símbolos no gobiernan por su forma; gobiernan por el significado que se les impone.
+        Todo símbolo comprendido pierde la capacidad de adoctrinar.
+      </p>
+      <ul class="list">
+        <li>Los símbolos no son sagrados. Sagrado es el significado que se les otorga.<span>Cuando el significado se impone, aparece obediencia automática.</span></li>
+        <li>Todo sistema que gobierna por símbolos gobierna mientras no sea comprendido.<span>Comprender es retirar el piloto automático.</span></li>
+        <li>Las formas primarias pertenecen a la vida, no a los sistemas.<span>Son anteriores a toda institución.</span></li>
+        <li>La libertad individual comienza con el discernimiento simbólico.<span>Ver, distinguir y elegir.</span></li>
+        <li>La coherencia individual eleva la coherencia colectiva.<span>Menos manipulación, más responsabilidad compartida.</span></li>
+        <li>LEJJU no promete salvación. Propone responsabilidad.<span>Comprensión, coherencia y soberanía interior.</span></li>
+      </ul>
+    </div>
+
+    <div class="card" id="motto">
+      <h2>Motto</h2>
+      <blockquote>
+        <div class="motto">“Vivo según la Ley, en Equilibrio, con Justicia, desde el Juicio consciente, en Unidad.”</div>
+        <div class="mono" style="margin-top:10px;">Firma simbólica = adhesión consciente (no acto jurídico).</div>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="grid" style="margin-top:18px;">
+    <div class="card" id="contacto">
+      <h2>Consulta privada</h2>
+      <p class="lead">No se publica. Se envía a WhatsApp con un clic.</p>
+
+      <form id="privateForm" style="margin-top:14px;">
+        <input id="pNombre" type="text" placeholder="Nombre (o alias)" required />
+        <div style="height:10px;"></div>
+        <select id="pTema" required>
+          <option value="" disabled selected>Tema</option>
+          <option>LEJJU / Simbología</option>
+          <option>Geometría aplicada (hogar / estudio)</option>
+          <option>Manifiesto / difusión</option>
+          <option>Otro</option>
+        </select>
+        <div style="height:10px;"></div>
+        <textarea id="pMensaje" placeholder="Escribí tu consulta privada" required></textarea>
+
+        <!-- honeypot anti-spam -->
+        <input id="hp" type="text" autocomplete="off" tabindex="-1" style="position:absolute; left:-9999px; opacity:0" />
+
+        <button class="cta" type="submit" style="margin-top:10px;">
+          Enviar por WhatsApp
+        </button>
+
+        <div class="smallprint mono">Vos decidís enviar: se abre WhatsApp con el texto listo.</div>
+      </form>
+    </div>
+
+    <div class="card" id="muro">
+      <h2>Muro público</h2>
+      <p class="lead">Publicación global. Admin puede borrar o rechazar.</p>
+
+      <form id="publicForm" style="margin-top:14px;">
+        <input id="uNombre" type="text" placeholder="Nombre (o alias)" required />
+        <div style="height:10px;"></div>
+        <textarea id="uMensaje" placeholder="Mensaje público (máx. 400 caracteres)" maxlength="400" required></textarea>
+
+        <!-- honeypot anti-spam -->
+        <input id="hp2" type="text" autocomplete="off" tabindex="-1" style="position:absolute; left:-9999px; opacity:0" />
+
+        <div class="actions" style="margin-top:10px;">
+          <button class="cta" type="submit">Publicar</button>
+          <span class="tag" id="modeTag">Modo: directo</span>
+        </div>
+        <div class="smallprint mono" id="publicHint"></div>
+      </form>
+
+      <div class="actions" style="margin-top:14px;">
+        <button class="cta danger" id="adminSignIn" type="button">Admin · Iniciar sesión</button>
+        <button class="cta danger" id="adminSignOut" type="button" style="display:none;">Admin · Salir</button>
+      </div>
+      <div class="smallprint mono" id="adminState">Admin: no autenticado</div>
+    </div>
+  </section>
+
+  <section class="card" style="margin-top:18px;">
+    <h2>Voces públicas</h2>
+    <p class="lead">Se muestran solo mensajes aprobados (o todos si sos admin).</p>
+    <ul id="wallList" class="list" style="margin-top:14px;"></ul>
+  </section>
+
+  <div class="footer">
+    <div>© <span id="year"></span> LEJJU STUDIO · Manifiesto Público</div>
+    <div class="mono">Simbología · Minimalismo · Admin</div>
+  </div>
+</main>
+
+<!-- ✅ Firebase config separado (NO hardcodeado) -->
+<script src="/firebase-config.js"></script>
+
+<!-- Firebase + lógica -->
+<script type="module">
+  // ====== BASIC CONFIG ======
+  const WHATSAPP_NUMBER = "598293824368";
+
+  // DIRECTO por defecto
+  const MODERATION_ENABLED = false; // true=pending, false=approved
+  const BLOCK_LINKS = true;
+  const COOLDOWN_MS = 30_000;
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("modeTag").textContent = "Modo: " + (MODERATION_ENABLED ? "aprobación" : "directo");
+  document.getElementById("publicHint").textContent = MODERATION_ENABLED
+    ? "Tu mensaje queda en revisión (pending) hasta aprobación."
+    : "Tu mensaje se publica directo (approved).";
+
+  // ====== WHATSAPP PRIVATE FORM ======
+  const privateForm = document.getElementById("privateForm");
+  privateForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (document.getElementById("hp").value.trim()) return; // honeypot
+
+    const nombre = document.getElementById("pNombre").value.trim();
+    const tema = document.getElementById("pTema").value.trim();
+    const mensaje = document.getElementById("pMensaje").value.trim();
+
+    const text =
+`LEJJU STUDIO · Consulta privada
+Nombre/Alias: ${nombre}
+Tema: ${tema}
+
+Mensaje:
+${mensaje}`;
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank", "noopener");
+    privateForm.reset();
+  });
+
+  // ====== FIREBASE IMPORTS ======
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+  import {
+    getFirestore, collection, addDoc, serverTimestamp, query, where, orderBy, limit, onSnapshot, deleteDoc, doc, updateDoc
+  } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+  import {
+    getAuth, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, signOut
+  } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+  // ✅ Config desde /firebase-config.js
+  const firebaseConfig = window.FIREBASE_CONFIG;
+  if (!firebaseConfig || !firebaseConfig.projectId) {
+    alert("Falta configurar Firebase. Completá /firebase-config.js con tu firebaseConfig.");
+    throw new Error("Missing FIREBASE_CONFIG");
+  }
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const auth = getAuth(app);
+
+  // ====== ADMIN AUTH UI ======
+  const adminSignInBtn = document.getElementById("adminSignIn");
+  const adminSignOutBtn = document.getElementById("adminSignOut");
+  const adminState = document.getElementById("adminState");
+
+  const provider = new GoogleAuthProvider();
+
+  adminSignInBtn.addEventListener("click", async () => {
+    try { await signInWithPopup(auth, provider); }
+    catch (e) { alert("No se pudo iniciar sesión."); }
+  });
+
+  adminSignOutBtn.addEventListener("click", async () => {
+    try { await signOut(auth); } catch (e) {}
+  });
+
+  let signedIn = false;
+
+  onAuthStateChanged(auth, (user) => {
+    signedIn = !!user;
+    adminSignInBtn.style.display = user ? "none" : "inline-flex";
+    adminSignOutBtn.style.display = user ? "inline-flex" : "none";
+    adminState.textContent = user ? `Admin: autenticado (${user.email || "cuenta"})` : "Admin: no autenticado";
+  });
+
+  // ====== ANTI-SPAM HELPERS ======
+  function hasLink(text){
+    return /(https?:\/\/|www\.)/i.test(text);
+  }
+  function canPost(){
+    const last = Number(localStorage.getItem("lejju_last_post") || "0");
+    return (Date.now() - last) > COOLDOWN_MS;
+  }
+  function markPosted(){
+    localStorage.setItem("lejju_last_post", String(Date.now()));
+  }
+
+  // ====== PUBLIC FORM -> FIRESTORE ======
+  const publicForm = document.getElementById("publicForm");
+  publicForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (document.getElementById("hp2").value.trim()) return; // honeypot
+
+    if (!canPost()){
+      alert("Demasiado rápido. Esperá un poco y probá de nuevo.");
+      return;
+    }
+
+    const nombre = document.getElementById("uNombre").value.trim().slice(0, 40);
+    const mensaje = document.getElementById("uMensaje").value.trim().slice(0, 400);
+
+    if (!nombre || !mensaje) return;
+    if (BLOCK_LINKS && hasLink(mensaje)){
+      alert("Por anti-spam: no se permiten links en el muro.");
+      return;
+    }
+
+    const status = MODERATION_ENABLED ? "pending" : "approved";
+
+    try{
+      await addDoc(collection(db, "wall"), {
+        nombre,
+        mensaje,
+        status,
+        createdAt: serverTimestamp()
+      });
+      markPosted();
+      publicForm.reset();
+      alert(MODERATION_ENABLED ? "Enviado a revisión." : "Publicado.");
+    }catch(err){
+      alert("No se pudo publicar (revisá configuración / reglas).");
+      console.error(err);
+    }
+  });
+
+  // ====== RENDER WALL ======
+  const wallList = document.getElementById("wallList");
+
+  function render(items, showAdminActions){
+    wallList.innerHTML = "";
+    if (!items.length){
+      const li = document.createElement("li");
+      li.innerHTML = `Aún no hay mensajes. <span>Dejá una reflexión breve y abrí el muro.</span>`;
+      wallList.appendChild(li);
+      return;
+    }
+
+    items.forEach(item => {
+      const li = document.createElement("li");
+      const statusTag = item.status && item.status !== "approved" ? ` <span class="tag">${item.status}</span>` : "";
+      li.innerHTML = `<b>${escapeHtml(item.nombre || "")}</b>${statusTag}<span>${escapeHtml(item.mensaje || "")}</span>`;
+
+      if (showAdminActions){
+        const row = document.createElement("div");
+        row.className = "actions";
+        row.style.marginTop = "10px";
+
+        const reject = document.createElement("button");
+        reject.className = "cta";
+        reject.type = "button";
+        reject.textContent = "Rechazar";
+        reject.onclick = async () => {
+          try{ await updateDoc(doc(db, "wall", item.id), { status: "rejected" }); }
+          catch(e){ alert("No autorizado."); }
+        };
+
+        const del = document.createElement("button");
+        del.className = "cta danger";
+        del.type = "button";
+        del.textContent = "Borrar";
+        del.onclick = async () => {
+          if (!confirm("¿Borrar definitivamente?")) return;
+          try{ await deleteDoc(doc(db, "wall", item.id)); }
+          catch(e){ alert("No autorizado."); }
+        };
+
+        // Si querés moderación “manual” aun en modo directo:
+        const approve = document.createElement("button");
+        approve.className = "cta";
+        approve.type = "button";
+        approve.textContent = "Aprobar";
+        approve.onclick = async () => {
+          try{ await updateDoc(doc(db, "wall", item.id), { status: "approved" }); }
+          catch(e){ alert("No autorizado."); }
+        };
+
+        row.appendChild(approve);
+        row.appendChild(reject);
+        row.appendChild(del);
+        li.appendChild(row);
+      }
+
+      wallList.appendChild(li);
+    });
+  }
+
+  function escapeHtml(str){
+    return String(str).replace(/[&<>"']/g, (m) => ({
+      "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;"
+    }[m]));
+  }
+
+  // Público: solo approved
+  const qPublic = query(
+    collection(db, "wall"),
+    where("status", "==", "approved"),
+    orderBy("createdAt", "desc"),
+    limit(50)
+  );
+
+  onSnapshot(qPublic, (snap) => {
+    const items = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    render(items, false);
+  });
+
+  // Admin: ve todo (pending/rejected/approved) y tiene acciones
+  let unsubAdmin = null;
+
+  onAuthStateChanged(auth, (user) => {
+    if (unsubAdmin) { unsubAdmin(); unsubAdmin = null; }
+    if (!user) return;
+
+    const qAdmin = query(collection(db, "wall"), orderBy("createdAt", "desc"), limit(80));
+    unsubAdmin = onSnapshot(qAdmin, (snap) => {
+      const items = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      render(items, true);
+    });
+  });
+
+</script>
+</body>
+</html>   // firebase-config.js
+window.FIREBASE_CONFIG = {
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: ""
+};
