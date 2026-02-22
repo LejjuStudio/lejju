@@ -350,11 +350,21 @@
     </div>
     function render(items, showAdminActions){
   wallList.innerHTML = "";
-    
- const wallCount = document.getElementById("wallCount");
-wallCount.textContent = items.length === 1
-  ? "1 mensaje publicado"
-  : `${items.length} mensajes publicados`;if (!items.length){
+
+  const wallCount = document.getElementById("wallCount");
+  wallCount.textContent = items.length === 1
+    ? "1 mensaje publicado"
+    : `${items.length} mensajes publicados`;
+
+  if (!items.length){
+    const li = document.createElement("li");
+    li.innerHTML = `Aún no hay mensajes. <span>Dejá una reflexión breve y abrí el muro.</span>`;
+    wallList.appendChild(li);
+    return;
+  }
+
+  items.forEach(item => {
+  
     <section class="card" style="margin-top:18px;">
   <h2>Voces públicas</h2>
   <p class="lead">Se muestran solo mensajes aprobados (o todos si sos admin).</p>
@@ -608,6 +618,7 @@ onAuthStateChanged(auth, (user) => {
 </script>
 </body>
 </html>  
+
 
 
 
