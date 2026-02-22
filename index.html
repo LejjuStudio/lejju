@@ -348,13 +348,14 @@
       </div>
       <div class="smallprint mono" id="adminState">Admin: no autenticado</div>
     </div>
-  </section>
-
   <section class="card" style="margin-top:18px;">
-    <h2>Voces públicas</h2>
-    <p class="lead">Se muestran solo mensajes aprobados (o todos si sos admin).</p>
-    <ul id="wallList" class="list" style="margin-top:14px;"></ul>
-  </section>
+  <h2>Voces públicas</h2>
+  <p class="lead">Se muestran solo mensajes aprobados (o todos si sos admin).</p>
+
+  <div class="tag" id="wallCount" style="margin-top:8px;">0 mensajes publicados</div>
+
+  <ul id="wallList" class="list" style="margin-top:14px;"></ul>
+</section>
 
   <div class="footer">
     <div>© <span id="year"></span> LEJJU STUDIO · Manifiesto Público</div>
@@ -600,6 +601,7 @@ onAuthStateChanged(auth, (user) => {
 </script>
 </body>
 </html>  
+
 
 
 
