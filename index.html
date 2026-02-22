@@ -582,20 +582,22 @@ onAuthStateChanged(auth, (user) => {
   // Admin: ve todo (pending/rejected/approved) y tiene acciones
   let unsubAdmin = null;
 
-  onAuthStateChanged(auth, (user) => {
-    if (unsubAdmin) { unsubAdmin(); unsubAdmin = null; }
-    if (!user) return;
+ onAuthStateChanged(auth, (user) => {
+  if (unsubAdmin) { unsubAdmin(); unsubAdmin = null; }
+  if (!user) return;
 
-    const qAdmin = query(collection(db, "wall"), orderBy("createdAt", "desc"), limit(80));
-    unsubAdmin = onSnapshot(qAdmin, (snap) => {
-      const items = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-      render(items, true);
-    });
+  const qAdmin = query(collection(db, "wall"), orderBy("createdAt", "desc"), limit(80));
+  unsubAdmin = onSnapshot(qAdmin, (snap) => {
+    const items = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    render(items, true);
   });
+});
+  
 
 </script>
 </body>
 </html>  
+
 
 
 
