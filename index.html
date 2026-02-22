@@ -582,9 +582,12 @@ onAuthStateChanged(auth, (user) => {
   // Admin: ve todo (pending/rejected/approved) y tiene acciones
   let unsubAdmin = null;
 
- onAuthStateChanged(auth, (user) => {
+const ADMIN_EMAIL = "jessicaacevedo198916@gmail.com";
+
+onAuthStateChanged(auth, (user) => {
   if (unsubAdmin) { unsubAdmin(); unsubAdmin = null; }
-  if (!user) return;
+
+  if (!user || user.email !== ADMIN_EMAIL) return;
 
   const qAdmin = query(collection(db, "wall"), orderBy("createdAt", "desc"), limit(80));
   unsubAdmin = onSnapshot(qAdmin, (snap) => {
@@ -597,6 +600,7 @@ onAuthStateChanged(auth, (user) => {
 </script>
 </body>
 </html>  
+
 
 
 
