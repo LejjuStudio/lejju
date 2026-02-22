@@ -354,7 +354,7 @@
  const wallCount = document.getElementById("wallCount");
 wallCount.textContent = items.length === 1
   ? "1 mensaje publicado"
-  : `${items.length} mensajes publicados`;
+  : `${items.length} mensajes publicados`;if (!items.length){
     <section class="card" style="margin-top:18px;">
   <h2>Voces públicas</h2>
   <p class="lead">Se muestran solo mensajes aprobados (o todos si sos admin).</p>
@@ -608,6 +608,7 @@ onAuthStateChanged(auth, (user) => {
 </script>
 </body>
 </html>  
+
 
 
 
