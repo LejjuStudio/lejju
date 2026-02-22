@@ -442,7 +442,7 @@ ${mensaje}`;
 
   let signedIn = false;
 
-const ADMIN_EMAIL = "TUEMAIL@gmail.com";
+const ADMIN_EMAIL = "jessicaacevedo198916@gmail.com";
 
 onAuthStateChanged(auth, (user) => {
   signedIn = !!user && user.email === ADMIN_EMAIL;
@@ -451,7 +451,7 @@ onAuthStateChanged(auth, (user) => {
   adminSignOutBtn.style.display = signedIn ? "inline-flex" : "none";
 
   adminState.textContent = signedIn
-    ? `Admin: autenticado (${lejustudio21@gmail.com})`
+    ? `Admin: autenticado (${jessicaacevedo198916@gmail.com})`
     : "Admin: no autorizado";
 
   if (user && user.email !== ADMIN_EMAIL) {
@@ -608,4 +608,5 @@ onAuthStateChanged(auth, (user) => {
 </script>
 </body>
 </html>  
+
 
