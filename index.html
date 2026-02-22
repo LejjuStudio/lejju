@@ -442,8 +442,6 @@ ${mensaje}`;
 
 let signedIn = false;
 
-const ADMIN_EMAIL = "jessicaacevedo198916@gmail.com";
-
 onAuthStateChanged(auth, (user) => {
   signedIn = !!user;
   adminSignInBtn.style.display = user ? "none" : "inline-flex";
@@ -598,6 +596,7 @@ onAuthStateChanged(auth, (user) => {
 </script>
 </body>
 </html>  
+
 
 
 
