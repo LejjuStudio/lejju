@@ -439,8 +439,7 @@ ${mensaje}`;
   adminSignOutBtn.addEventListener("click", async () => {
     try { await signOut(auth); } catch (e) {}
   });
-
-  let signedIn = false;
+let signedIn = false;
 
 const ADMIN_EMAIL = "jessicaacevedo198916@gmail.com";
 
@@ -451,7 +450,7 @@ onAuthStateChanged(auth, (user) => {
   adminSignOutBtn.style.display = signedIn ? "inline-flex" : "none";
 
   adminState.textContent = signedIn
-    ? `Admin: autenticado (${jessicaacevedo198916@gmail.com})`
+    ? `Admin: autenticado (${user.email})`
     : "Admin: no autorizado";
 
   if (user && user.email !== ADMIN_EMAIL) {
@@ -608,6 +607,7 @@ onAuthStateChanged(auth, (user) => {
 </script>
 </body>
 </html>  
+
 
 
 
